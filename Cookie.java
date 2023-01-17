@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Cookie {
-    String dirPath ="//data2";
+    String dirPath ="data2";
     String fileName ="cookie.txt";
 
     List<String> cookieItems = null;
@@ -21,17 +21,19 @@ public class Cookie {
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         String readString;
-try{
+        try{
         while(null!=(readString = br.readLine())){
             cookieItems.add(readString);
 
         }
-    }catch(IOException e) {e.printStackTrace();
+            }catch(IOException e) {e.printStackTrace();
 
-    }
+            }finally{
+             br.close();
+                }
 
         
-    }
+             }
    public String returnCookie(){
     Random rand = new Random();
 
